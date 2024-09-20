@@ -1,5 +1,4 @@
-/*import React, { useEffect, useState } from "react";*/
-import React from "react"
+import React, { useState, useEffect } from 'react';
 import Segs from "./Segs.jsx"
 import Mins from "./Mins.jsx"
 import Horas from "./Horas.jsx"
@@ -8,34 +7,25 @@ import Reloj from "./Reloj.jsx"
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 //create your first component
+
+//Esta es una incorporación para ver cómo funciona
 const Home = () => {
-	/*const [count, setcount] = useState(0)
+	const [segundos, setSegundos] = useState(0);
+
 	useEffect(() => {
-		let intervalID = setInterval(() => {
-			setcount(count + 1)
-		}, 1000)
-		return () => {
-			clearInterval(intervalID)
-		}
-	}, [count])*/
-	let segundos = 0;
-	setInterval(() => {
-		const digito1 = Math.floor((segundos / 1) % 10)
-		const digito2 = Math.floor((segundos / 10) % 10)
-		const digito3 = Math.floor((segundos / 100) % 10)
-		const digito4 = Math.floor((segundos / 1000) % 10)
-		const digito5 = Math.floor((segundos / 10000) % 10)
-		const digito6 = Math.floor((segundos / 100000) % 10)
-		segundos += 1;
+		const interval = setInterval(() => {
+			setSegundos((prev) => prev + 1);
+		}, 1000);
 
-		const One = digito1
-		const Two = digito2
-		const Three = digito3
-		const Four = digito4
-		const Five = digito5
-		const Six = digito6
+		return () => clearInterval(interval);
+	}, []);
 
-	}, 1000)
+	const digito1 = Math.floor((segundos / 1) % 10);
+	const digito2 = Math.floor((segundos / 10) % 10);
+	const digito3 = Math.floor((segundos / 60) % 10);
+	const digito4 = Math.floor((segundos / 600) % 10);
+	const digito5 = Math.floor((segundos / 3600) % 10);
+	const digito6 = Math.floor((segundos / 36000) % 10);
 
 	return (
 		<div className="container bg-dark text-white">
@@ -46,22 +36,21 @@ const Home = () => {
 
 				<div className="col-sm-3">
 					<Horas
-						segundos5={Six}
-						segundos6={Five}
+						segundos5={digito6}
+						segundos6={digito5}
 					/>
-
 				</div>
 				<div className="col-sm-3">
 					<Mins
-						segundos3={Four}
-						segundos4={Three}
+						segundos3={digito4}
+						segundos4={digito3}
 					/>
 				</div>
 
 				<div className="col-sm-3">
 					<Segs
-						segundos1={Two}
-						segundos2={One}
+						segundos1={digito2}
+						segundos2={digito1}
 					/>
 				</div>
 			</div>
@@ -70,3 +59,4 @@ const Home = () => {
 };
 
 export default Home;
+
