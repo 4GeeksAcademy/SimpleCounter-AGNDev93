@@ -10,4 +10,16 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
-
+.fa-clock{
+    font-size:8rem;
+    background-color:#101010;
+    border-radius:20px;
+}
+span{
+    font-size:7rem; 
+    background-color:#101010;
+    border-radius:20px;
+}
+.main{
+    background-color: #000000;
+}
