@@ -7,14 +7,8 @@ import SecondsCounter from "./SecondsCounter.jsx";
 
 const Home = () => {
     return (
-        <div className="container m-3 main">
-            <div className="row d-flex justify-content-center p-4">
-                <div className="col-sm-auto">
-                    <SecondsCounter
-                        seconds={0}
-                    />
-                </div>
-            </div>
+        <div className="main m-3 p-4">
+            <SecondsCounter seconds={0} />
         </div>
     );
 }
